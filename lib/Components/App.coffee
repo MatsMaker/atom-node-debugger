@@ -57,13 +57,24 @@ RightSidePane = (BreakPointPane, CallStackPane, LocalsPane, WatchPane, StepButto
         style: {
           flex: 'auto'
           display: 'list-item'
-          overflow: 'auto';
+          overflow: 'sc';
         }
       }, [
-        BreakPointPane.render(state.breakpoints)
-        CallStackPane.render(state.callstack)
-        LocalsPane.render(state.locals)
-        WatchPane.render(state.watch)
+        h('div.scroll-view', {
+          style:{
+            'position': 'relative'
+            'z-index': '0'
+            'overflow': 'scroll'
+            'flex': '1 1 0%'
+            'min-width': '0px'
+            'height': '100vh'
+          }
+        }, [
+          BreakPointPane.render(state.breakpoints)
+          CallStackPane.render(state.callstack)
+          LocalsPane.render(state.locals)
+          WatchPane.render(state.watch)
+        ])
       ])
     ])
   ])
