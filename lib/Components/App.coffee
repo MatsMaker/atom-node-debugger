@@ -57,7 +57,7 @@ RightSidePane = (BreakPointPane, CallStackPane, LocalsPane, WatchPane, StepButto
         style: {
           flex: 'auto'
           display: 'list-item'
-          overflow: 'sc';
+          overflow: 'auto';
         }
       }, [
         h('div.scroll-view', {
